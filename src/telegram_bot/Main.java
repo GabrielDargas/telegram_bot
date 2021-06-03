@@ -55,9 +55,9 @@ public class Main {
 				System.out.println("Resposta de Chat Action Enviada? " + baseResponse.isOk());
 
 				// Envio da mensagem de resposta
-				
+				String messageLowerCase = update.message().text().toLowerCase();
 				//Envio de Resposta para possíveis cumprimentos. Envia uma lista do que o bot faz.
-				if(update.message().text().contains("Olá") || update.message().text().contains("Oi")) {
+				if(messageLowerCase.contains("olá") || messageLowerCase.contains("oi")) {
 					sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Olá, "+ update.message().from().firstName()  +", tudo bem?"
 							 + "\nEu faço 4 coisas: "
 							 + "\n1. Posso procurar por algum CEP, caso queira fazer isso, é só digitar o número de CEP que você quer consultar."
@@ -65,7 +65,7 @@ public class Main {
 							 + "\n3. Atividade 3"
 							 + "\n4. Atividade 4"));
 					//Reconhece através do REGEX que é um CEP. Envia que o CEP foi reconhecido.
-				} else if(update.message().text().matches("\\d{5}-\\d{3}") || update.message().text().matches("\\d{8}")){
+				} else if(messageLowerCase.matches("\\d{5}-\\d{3}") || messageLowerCase.matches("\\d{8}")){
 					sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Aqui tem um CEP"));
 					//Resposta padrão
 				} else {
