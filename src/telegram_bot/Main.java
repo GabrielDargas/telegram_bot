@@ -56,8 +56,9 @@ public class Main {
 
 				// Envio da mensagem de resposta
 				String messageLowerCase = update.message().text().toLowerCase();
+				
 				//Envio de Resposta para possíveis cumprimentos. Envia uma lista do que o bot faz.
-				if(messageLowerCase.contains("olá") || messageLowerCase.contains("oi")) {
+				if(messageLowerCase.contains("olá") || messageLowerCase.contains("oi") || messageLowerCase.contains("ola") || messageLowerCase.contains("/start")) {
 					sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Olá, "+ update.message().from().firstName()  +", tudo bem?"
 							 + "\nEu faço 4 coisas: "
 							 + "\n1. Posso procurar por algum CEP, caso queira fazer isso, é só digitar o número de CEP que você quer consultar."
