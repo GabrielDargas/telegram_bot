@@ -62,7 +62,9 @@ public class Main {
 							 + "\n2. Atividade 2"
 							 + "\n3. Atividade 3"
 							 + "\n4. Atividade 4"));
-				} else if(update.message().text().) {
+				} else if(update.message().text().matches("\\d{5}-\\d{3}")){
+					sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Aqui tem um CEP"));
+				} else {
 					sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Não entendi"));
 				}
 				
