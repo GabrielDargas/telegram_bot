@@ -65,7 +65,7 @@ public class Main {
 							 + "\n3. Atividade 3"
 							 + "\n4. Atividade 4"));
 					//Reconhece através do REGEX que é um CEP. Envia que o CEP foi reconhecido.
-				} else if(update.message().text().matches("\\d{5}-\\d{3}")){
+				} else if(update.message().text().matches("\\d{5}-\\d{3}") || update.message().text().matches("\\d{8}")){
 					sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Aqui tem um CEP"));
 					//Resposta padrão
 				} else {
